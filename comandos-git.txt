@@ -1,0 +1,60 @@
+git config --global http.proxy "" // Configuracion sin proxy
+git config --global user.name Ibins
+git config --global user.email ibins@uma.es
+1
+git clone https://github.com/Ibinsway/umafactorial.git  //clono el repositorio en mi PC.
+2 //Creo el fichero factorial.java.
+3
+git add factorial.java	//Después de crear el fichero factorial.java lo añado en un commit
+git commit -m "implementacion inicial"	//con el mensaje "implementacion inicial".
+4
+git add factorial.java
+git commit -m "refactorizacion"
+5
+git push origin master	//Publico las modificaciones desde la rama master en el repositorio de GitHub.
+git checkout -b recursivo	//Creo una nueva rama llamada recursivo.
+6 //Modifico el método fact ()
+7
+git add factorial.java
+git commit -m "implementacion recursiva"
+git push origin recursivo
+8
+git checkout master	// Cambiamos a la rama master.
+9 //Modifico el método main ().
+10
+git add factorial.java
+git commit -m "correccion numeros negativos"
+git push origin master
+11	//Modifico if (num<=0)  a  if (num<=1).
+git checkout recursivo
+git add factorial.java
+git commit -m "optimizacion"
+12
+git checkout master
+git merge recursivo		//Mezclo las dos ramas.
+13 //Cambio el codigo añadiendo getNumbuer().
+git checkout -b refacIO
+14
+git add factorial.java
+git commit -m "refactorizacion de metodo de entrada"
+15
+git stash		// Guardo temporalmente los cambios para volver a la rama master.
+git checkout master
+16
+git add factorial.java
+git commit -m "cambio de long a BigInteger"
+git push origin master
+git checkout refacIO
+git stash pop
+git add factorial.java
+git commit -m "refactorizacion de metodo de salida"
+17
+git checkout master
+git merge refacIO
+18 //Resolvemos el problema que nos da modificando manualmente el codigo.
+19
+git add factorial.java
+git commit -m "mezcla de rama refacIO"
+git push origin master
+20 // Creo un fichero con todo el historial que he realizado.
+history > comandos-git.txt
